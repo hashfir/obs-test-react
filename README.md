@@ -1,64 +1,126 @@
-# User Management App 👥# User Directory Application
+# User Management App# User Management App 👥# User Directory Application
 
 
 
-A simple and clean user management application where you can view, add, edit, and delete users. Built with React and Material-UI.A modern, responsive web application built with React, TypeScript, and Material-UI for managing user information. This application demonstrates best practices in frontend development, including state management, API integration, and comprehensive testing.
+A simple user management application where you can view, add, edit, and delete users.
 
 
 
-## 🌐 Live Demo## 🚀 Live Demo
+## Live DemoA simple and clean user management application where you can view, add, edit, and delete users. Built with React and Material-UI.A modern, responsive web application built with React, TypeScript, and Material-UI for managing user information. This application demonstrates best practices in frontend development, including state management, API integration, and comprehensive testing.
 
 
 
-[Coming soon - Deploy on Vercel][View Live Demo](https://your-deployment-url.vercel.app) _(To be deployed)_
+Coming soon
 
 
+
+## What You Can Do## 🌐 Live Demo## 🚀 Live Demo
+
+
+
+- Browse all users
+
+- Search by name, email, or company
+
+- View full user details[Coming soon - Deploy on Vercel][View Live Demo](https://your-deployment-url.vercel.app) _(To be deployed)_
+
+- Add new users
+
+- Edit existing users
+
+- Delete users
 
 ## What Can You Do?## 📋 Features
 
+## Built With
 
 
-- Browse all users in a nice card layout- **User Management**: View, add, edit, and delete users
+
+- React with TypeScript
+
+- Material-UI- Browse all users in a nice card layout- **User Management**: View, add, edit, and delete users
+
+- Vite
 
 - Search for users by name, email, or company- **Responsive Design**: Optimized for both desktop and mobile devices
 
+## Getting Started
+
 - Click on any user to see their full details- **Real-time Search**: Filter users by name, email, username, or company
 
-- Add new users with the + button- **Modal Components**: User details and forms displayed in elegant modals
+```bash
 
-- Edit or delete existing users- **State Management**: Centralized state using React Context API
+npm install- Add new users with the + button- **Modal Components**: User details and forms displayed in elegant modals
 
-- Everything works on mobile, tablet, and desktop- **API Integration**: Fetches data from JSONPlaceholder API
+npm run dev
 
-- **Loading States**: Visual feedback during data fetching
+```- Edit or delete existing users- **State Management**: Centralized state using React Context API
 
-## Tech Stack- **Error Handling**: Graceful error handling with user-friendly messages
 
-- **TypeScript**: Full type safety with interfaces and types
+
+Open http://localhost:5173- Everything works on mobile, tablet, and desktop- **API Integration**: Fetches data from JSONPlaceholder API
+
+
+
+## Deploy on Vercel- **Loading States**: Visual feedback during data fetching
+
+
+
+1. Push code to GitHub## Tech Stack- **Error Handling**: Graceful error handling with user-friendly messages
+
+2. Go to vercel.com
+
+3. Import your repository- **TypeScript**: Full type safety with interfaces and types
+
+4. Click Deploy
 
 - React 19 with TypeScript- **Unit Testing**: Comprehensive tests using React Testing Library
 
+Done! Vercel handles everything automatically.
+
 - Material-UI for the design- **Code Quality**: ESLint and Prettier configured for consistent code style
+
+## Commands
 
 - JSONPlaceholder API for demo data
 
-- Vite for fast development## 🛠️ Technologies Used
+```bash
 
+npm run dev      # Start app- Vite for fast development## 🛠️ Technologies Used
 
+npm run build    # Build for production
+
+npm test         # Run tests
+
+```
 
 ## Quick Start- **React 19** - UI library
 
+## Features
+
 - **TypeScript** - Type safety and better developer experience
 
-```bash- **Material-UI (MUI)** - Modern React component library
+- Full CRUD operations
 
-# Install dependencies- **Vite** - Fast build tool and development server
+- Search functionality```bash- **Material-UI (MUI)** - Modern React component library
 
-npm install- **React Context API** - State management
+- Responsive design
+
+- Loading states# Install dependencies- **Vite** - Fast build tool and development server
+
+- Error handling
+
+- TypeScript supportnpm install- **React Context API** - State management
+
+- Unit tests
 
 - **React Testing Library** - Unit testing
 
+## Note
+
 # Run the app- **Vitest** - Fast unit test framework
+
+Uses JSONPlaceholder API for demo data. Changes are not permanent.
 
 npm run dev- **ESLint** - Code linting
 
