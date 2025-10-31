@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Card,
   CardContent,
@@ -7,6 +7,7 @@ import {
   CardActionArea,
   Box,
   Chip,
+  Skeleton,
 } from '@mui/material';
 import type { User } from '../types/user.types';
 import { Email, Phone, Business } from '@mui/icons-material';
@@ -17,6 +18,8 @@ interface UserCardProps {
 }
 
 const UserCard: React.FC<UserCardProps> = ({ user, onClick }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <Card
       sx={{
@@ -31,12 +34,19 @@ const UserCard: React.FC<UserCardProps> = ({ user, onClick }) => {
       }}
     >
       <CardActionArea onClick={onClick} sx={{ flexGrow: 1 }}>
+        {!imageLoaded && (
+          <Skeleton variant="rectangular" height={200} animation="wave" />
+        )}
         <CardMedia
           component="img"
           height="200"
           image={user.imageUrl}
           alt={user.name}
-          sx={{ objectFit: 'cover' }}
+          onLoad={() => setImageLoaded(true)}
+          sx={{
+            objectFit: 'cover',
+            display: imageLoaded ? 'block' : 'none',
+          }}
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div" noWrap>
