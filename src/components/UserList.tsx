@@ -125,13 +125,19 @@ const UserList: React.FC = () => {
 
         {/* User Grid or Empty State */}
         {filteredUsers.length === 0 ? (
-          <Alert severity="info" sx={{ textAlign: 'center' }}>
+          <Alert severity="info" sx={{ textAlign: 'center', borderRadius: 2 }}>
             {searchQuery
               ? `No users found matching "${searchQuery}". Try a different search term.`
               : 'No users available at the moment.'}
           </Alert>
         ) : (
-          <Grid container spacing={3}>
+          <Grid 
+            container 
+            spacing={{ xs: 2, sm: 3, md: 4 }}
+            sx={{
+              px: { xs: 0, sm: 1 },
+            }}
+          >
             {filteredUsers.map(user => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={user.id}>
                 <UserCard user={user} onClick={() => handleUserClick(user)} />
