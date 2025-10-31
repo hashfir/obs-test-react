@@ -12,6 +12,7 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { Add, Search } from '@mui/icons-material';
+import type { User } from '../types/user.types';
 import { useUserContext } from '../context/UserContext';
 import UserCard from './UserCard';
 import UserDetailsModal from './UserDetailsModal';
@@ -23,7 +24,7 @@ const UserList: React.FC = () => {
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const handleUserClick = (user: any) => {
+  const handleUserClick = (user: User) => {
     setSelectedUser(user);
     setDetailsModalOpen(true);
   };
@@ -49,6 +50,7 @@ const UserList: React.FC = () => {
       user.company.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // Show loading spinner while fetching users
   if (loading) {
     return (
       <Box
@@ -64,10 +66,13 @@ const UserList: React.FC = () => {
     );
   }
 
+  // Show error message if something went wrong
   if (error) {
     return (
       <Container sx={{ mt: 4 }}>
-        <Alert severity="error">{error}</Alert>
+        <Alert severity="error">
+          Oops! Something went wrong: {error}
+        </Alert>
       </Container>
     );
   }
@@ -75,6 +80,7 @@ const UserList: React.FC = () => {
   return (
     <>
       <Container sx={{ py: 4 }}>
+        {/* Page Header */}
         <Box sx={{ mb: 4 }}>
           <Typography
             variant="h3"
@@ -93,9 +99,10 @@ const UserList: React.FC = () => {
             color="text.secondary"
             sx={{ textAlign: 'center', mb: 3 }}
           >
-            Manage and view user information
+            Explore and manage your users with ease
           </Typography>
 
+          {/* Search Input */}
           <TextField
             fullWidth
             placeholder="Search by name, email, username, or company..."
@@ -116,8 +123,13 @@ const UserList: React.FC = () => {
           />
         </Box>
 
+        {/* User Grid or Empty State */}
         {filteredUsers.length === 0 ? (
-          <Alert severity="info">No users found matching your search.</Alert>
+          <Alert severity="info" sx={{ textAlign: 'center' }}>
+            {searchQuery
+              ? `No users found matching "${searchQuery}". Try a different search term.`
+              : 'No users available at the moment.'}
+          </Alert>
         ) : (
           <Grid container spacing={3}>
             {filteredUsers.map(user => (
@@ -129,14 +141,20 @@ const UserList: React.FC = () => {
         )}
       </Container>
 
+      {/* Floating Action Button to Add New User */}
       <Fab
         color="primary"
-        aria-label="add"
+        aria-label="add user"
         onClick={handleAddUser}
         sx={{
           position: 'fixed',
           bottom: 24,
           right: 24,
+          boxShadow: 3,
+          '&:hover': {
+            transform: 'scale(1.1)',
+            transition: 'transform 0.2s',
+          },
         }}
       >
         <Add />

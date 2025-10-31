@@ -1,3 +1,9 @@
+/**
+ * TypeScript interfaces for User management
+ * These types ensure type safety throughout the application
+ */
+
+// Main User interface matching the JSONPlaceholder API structure
 export interface User {
   id: number;
   name: string;
@@ -7,9 +13,10 @@ export interface User {
   website: string;
   address: Address;
   company: Company;
-  imageUrl?: string;
+  imageUrl?: string; // Added for profile pictures
 }
 
+// User address information
 export interface Address {
   street: string;
   suite: string;
@@ -18,17 +25,20 @@ export interface Address {
   geo: Geo;
 }
 
+// Geographic coordinates
 export interface Geo {
   lat: string;
   lng: string;
 }
 
+// Company information
 export interface Company {
   name: string;
   catchPhrase: string;
-  bs: string;
+  bs: string; // Business service
 }
 
+// Flattened form data for easier form handling
 export interface UserFormData {
   name: string;
   username: string;

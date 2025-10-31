@@ -33,6 +33,7 @@ describe('API Service', () => {
       },
     ];
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (globalThis.fetch as any).mockResolvedValueOnce({
       ok: true,
       json: async () => mockUsers,
@@ -49,6 +50,7 @@ describe('API Service', () => {
   });
 
   it('should throw error when fetch fails', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (globalThis.fetch as any).mockResolvedValueOnce({
       ok: false,
     });
@@ -57,6 +59,7 @@ describe('API Service', () => {
   });
 
   it('should handle network errors', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (globalThis.fetch as any).mockRejectedValueOnce(new Error('Network error'));
 
     await expect(fetchUsers()).rejects.toThrow('Network error');
